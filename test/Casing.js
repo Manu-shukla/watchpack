@@ -1,13 +1,13 @@
 /*globals describe it beforeEach afterEach */
 require("should");
-var path = require("path");
-var TestHelper = require("./helpers/TestHelper");
-var Watchpack = require("../lib/watchpack");
+var path = require("path"),
+ TestHelper = require("./helpers/TestHelper"),
+ Watchpack = require("../lib/watchpack"),
 
-var fixtures = path.join(__dirname, "fixtures");
-var testHelper = new TestHelper(fixtures);
+ fixtures = path.join(__dirname, "fixtures"),
+ testHelper = new TestHelper(fixtures);
 
-var fsIsCaseInsensitive;
+ fsIsCaseInsensitive;
 try {
 	fsIsCaseInsensitive = require("fs").existsSync(path.join(__dirname, "..", "PACKAGE.JSON"));
 } catch(e) {
@@ -17,7 +17,7 @@ try {
 if(fsIsCaseInsensitive) {
 
 	describe("Casing", function() {
-		this.timeout(10000);
+		this.timeout(1000);//this would stablize the aggregate time out betwwen the casing variables
 		beforeEach(testHelper.before);
 		afterEach(testHelper.after);
 
